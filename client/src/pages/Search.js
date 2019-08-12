@@ -7,6 +7,7 @@ import { List, ListItem } from "../components/List";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import Card from "../components/Card";
 
 class Search extends Component {
   state = {
@@ -66,10 +67,18 @@ class Search extends Component {
               <List>
                 {this.state.results.map(book => (
                   <ListItem key={book.id}>
+                    <Card
+                      id={book.volumeInfo.id}
+                      title={book.volumeInfo.title}
+                      authors={book.volumeInfo.authors}
+                      description={book.volumeInfo.description}
+                      image={book.volumeInfo.imageLinks.thumbnail}
+                      link={book.volumeInfo.canonicalVolumeLink}
+                    />
                     {/* <Link to={"/books/" + book._id}> */}
-                      <strong>
+                      {/* <strong>
                         {book.volumeInfo.title} by {book.volumeInfo.authors}
-                      </strong>
+                      </strong> */}
                     {/* </Link> */}
                     {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
                   </ListItem>
