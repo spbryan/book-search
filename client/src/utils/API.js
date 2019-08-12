@@ -1,10 +1,11 @@
 import axios from "axios";
 
-// Export an object containing methods we'll use for accessing the Dog.Ceo API
+var KEY = "AIzaSyB9bMIAuOTq6CZxcNXzSYV6qPHknzxr0gY";
+var URL_PREFIX = "https://www.googleapis.com/books/v1/volumes?q=";
 
 export default {
-    getBooks: function () {
+    getBooks: function (searchValue) {
         console.log("Boom");
-        return axios.get("https://dog.ceo/api/breeds/image/random");
+        return axios.get(URL_PREFIX + searchValue + "&key=" + KEY);
     }
 };

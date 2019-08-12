@@ -27,7 +27,8 @@ class Search extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        this.setState({ results: res.data.message, error: "" });
+        this.setState({ results: res.data, error: "" });
+        console.log("<debug>" + JSON.stringify(this.state.results));
       })
       .catch(err => this.setState({ error: err.message }));
   };
@@ -59,7 +60,7 @@ class Search extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <SearchResults results={this.state.results} />
+            {/* <SearchResults results={this.state.results} /> */}
           </Col>
         </Row>
       </Container>
