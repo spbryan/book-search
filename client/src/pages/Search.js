@@ -3,6 +3,7 @@ import API from "../utils/API";
 // import Hero from "../components/Hero";
 import { Input, FormBtn } from "../components/Form";
 import SearchResults from "../components/SearchResults";
+import { List, ListItem } from "../components/List";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
@@ -27,7 +28,7 @@ class Search extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        this.setState({ results: res.data, error: "" });
+        this.setState({ results: res.data.items, error: "" });
         console.log("<debug>" + JSON.stringify(this.state.results));
       })
       .catch(err => this.setState({ error: err.message }));
@@ -54,13 +55,29 @@ class Search extends Component {
               <FormBtn
                 disabled={!(this.state.book)}
                 onClick={this.handleFormSubmit}
-              ></FormBtn>
+              >Submit</FormBtn>
             </form>
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            {/* <SearchResults results={this.state.results} /> */}
+            <h1>Books on the list</h1>
+            {this.state.results.length ? (
+              <List>
+                {this.state.results.map(book => (
+                  <ListItem key={book.id}>
+                    {/* <Link to={"/books/" + book._id}> */}
+                      <strong>
+                        {book.volumeInfo.title} by {book.volumeInfo.authors}
+                      </strong>
+                    {/* </Link> */}
+                    {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+                <h3>No Results to Display</h3>
+              )}
           </Col>
         </Row>
       </Container>
