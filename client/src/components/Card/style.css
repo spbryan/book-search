@@ -3,7 +3,7 @@
   /* background-position: center; */
   background-clip: content-box;
   border: 6px solid white;
-  height: 400px;
+  height: 300px;
   width: auto;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   position: relative;
@@ -19,10 +19,16 @@
 }
 
 .card-text { 
-  height: 270px; 
+  height: 175px; 
   overflow-y: scroll; 
   width: 100%; }
 
 .card-text p { 
   width: 650px; 
   word-break: break-word; }
+
+.card-img {
+  margin-left: 30px;
+  height: 200px;
+  width: auto;
+}

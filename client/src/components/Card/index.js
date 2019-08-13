@@ -13,12 +13,19 @@ function Card(props) {
     // }}
     >
       <Row>
+        <Col size="md-6">
+          <h5 className="card-title">{props.title}</h5>
+          <h6 className="card-subtitle mb-2">By {props.authors}</h6>
+        </Col>
+        <Col size="md-4">
+        </Col>
+        <p>placeholder buttons</p>
+      </Row>
+      <Row>
         <Col size="md-3">
           <img className='card-img' src={props.image} alt='Card image cap' />
         </Col>
         <Col size="md-9">
-          <h5 className="card-title">{props.title}</h5>
-          <h6 className="card-subtitle mb-2">By {props.authors}</h6>
           <h6 className="card-subtitle mt-2">Description</h6>
           <p className="card-text">
             {props.description}
